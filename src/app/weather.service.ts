@@ -7,7 +7,11 @@ import { Observable } from 'rxjs';
 })
 export class WeatherService {
 
-  private readonly _url: string = 'http://localhost:8080/weather/';
+  // local url
+  // private readonly _url: string = 'http://localhost:5000/weather/';
+
+  //deployed url
+  private readonly _url: string = 'https://weather-check.up.railway.app/weather/';
 
   constructor(private http: HttpClient) { }
 
