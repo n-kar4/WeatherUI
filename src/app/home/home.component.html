@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Find out about weather of any city</h2>
+    <div class="input-group mb-3">
+      <input type="text" [(ngModel)]="city" placeholder="Enter city name" class="form-control">
+      <div class="input-group-append">
+        <button #search class="btn btn-primary" (click)="onSearch()">Search</button>
+      </div>
+    </div>
+</div>
+<!-- {{city}} -->
+
+<div class="d-flex justify-content-center align-items-center">
+  <ng-container *ngIf="searchClicked; else showSearch">
+    <ng-container *ngIf="city?.length > 0 && weatherData!==null; else nothingFound">
+
+      <app-weather [weatherData]="weatherData"></app-weather>
+      
+    </ng-container>
+  </ng-container>
+  <ng-template #nothingFound>
+    <img src="../../../assets/img/no-data.jpg" alt="Nothing Found" width="300" height="300">
+  </ng-template>
+
+  <ng-template #showSearch>
+    <img src="../../../assets/img/search-data.jpg" alt="Nothing Found" width="300" height="300">
+  </ng-template>
+</div>
+
+
